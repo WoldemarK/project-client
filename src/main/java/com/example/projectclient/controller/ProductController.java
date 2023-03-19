@@ -16,10 +16,6 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/help")
-    public String message() {
-        return "TestControler";
-    }
 
     @GetMapping("/all")
     public ResponseEntity<List<ProductDto>> showAllProducts() {
