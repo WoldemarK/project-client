@@ -5,3 +5,5 @@ databaseChangeLog:
       file: db/changelog/init-filling-product.sql
   - include:
       file: db/changelog/init-customers.sql
+  - include:
+      file: db/changelog/init-create-customers.sql

@@ -5,11 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDate;
 
 @Data
 @Entity
@@ -43,11 +38,11 @@ public class Customers {
     @Column(name = "inn")
     private Long INN;
 
-    @CreationTimestamp
-    @Column(name = "creation_date", columnDefinition = "DATE")
-    private LocalDate creation = LocalDate.now();
-
-    @UpdateTimestamp
-    @Column(name = "update_date", columnDefinition = "DATE")
-    private LocalDate update = LocalDate.now();
+//    @CreationTimestamp
+//    @Column(name = "creation_date", columnDefinition = "DATE")
+//    private LocalDate creation;
+//
+//    @UpdateTimestamp
+//    @Column(name = "update_date", columnDefinition = "DATE")
+//    private LocalDate update;
 }
