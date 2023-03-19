@@ -9,5 +9,4 @@ create table if not exists product
     available   boolean       not null,
     description varchar(5000) not null,
     receipt_date date
-
 );

@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/changelog/init-product.sql
+  - include:
+      file: db/changelog/init-product.sql
