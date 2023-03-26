@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Builder
@@ -37,6 +40,16 @@ public class Customers {
     private String website;
     @Column(name = "inn")
     private Long INN;
+    @ManyToMany(mappedBy = "customers", cascade = CascadeType.PERSIST)
+    private List<CustomersEmployee> customersEmployees;
+
+    public void addEmployee(CustomersEmployee _employee) {
+        if (this.customersEmployees == null) {
+            this.customersEmployees = new ArrayList<>();
+            this.customersEmployees.add(_employee);
+
+        }
+    }
 
 //    @CreationTimestamp
 //    @Column(name = "creation_date", columnDefinition = "DATE")

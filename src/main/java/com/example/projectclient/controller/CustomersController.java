@@ -2,7 +2,6 @@ package com.example.projectclient.controller;
 
 import com.example.projectclient.dto.CustomersDto;
 import com.example.projectclient.model.Customers;
-import com.example.projectclient.repository.CustomersRepository;
 import com.example.projectclient.service.CustomersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
