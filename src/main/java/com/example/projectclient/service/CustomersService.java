@@ -1,28 +1,31 @@
 package com.example.projectclient.service;
 
+import com.example.projectclient.dto.CustomersDto;
+import com.example.projectclient.mapper.CustomersMapper;
 import com.example.projectclient.model.Customers;
 import com.example.projectclient.repository.CustomersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class CustomersService {
     private final CustomersRepository customersRepository;
+    private final CustomersMapper mapper;
 
-
-    public List<Customers> showAll() {
-        return customersRepository.findAll();
+    public List<CustomersDto> showAll() {
+        return customersRepository.findAll()
+                .stream()
+                .map(mapper::convertCustomersToDto)
+                .collect(Collectors.toList());
     }
 
 
-    public Customers create(Customers customers) {
-        return customersRepository.save(customers);
+    public CustomersDto create(Customers customers) {
+        return mapper.convertCustomersToDto(customersRepository.save(customers));
     }
 }
